@@ -1,0 +1,48 @@
+h1{
+    font-family: 'Francois One', sans-serif;
+    font-size: 60px;
+    color:#515151;
+    display: inline-flex;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.sticky-notes{
+    width: 95%;
+    height: 80%;
+    border: 1px solid #c2c7c2;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+button{
+    border: 1px solid #c2c7c2;  
+    margin-right: 15px;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+.gray-card {
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .icon {
+    font-size: 48px;
+    color: #333;
+  }
+  

@@ -1,9 +1,8 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened="true" class="custom-sidenav">
-      <app-side-bar></app-side-bar>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <app-sticky-wall></app-sticky-wall>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <app-side-bar></app-side-bar>
+  </mat-sidenav>
+<mat-sidenav-content>
+    <app-sticky-wall></app-sticky-wall>
+  </mat-sidenav-content>
+</mat-sidenav-container>

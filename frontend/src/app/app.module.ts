@@ -8,7 +8,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { StickyWallComponent } from './sticky-wall/sticky-wall.component'
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
