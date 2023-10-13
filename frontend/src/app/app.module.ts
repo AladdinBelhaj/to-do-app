@@ -10,12 +10,16 @@ import { StickyWallComponent } from './sticky-wall/sticky-wall.component'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ModalComponent } from './sticky-wall/modal/modal.component';
+import { ModalService } from './services/modal.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
-    StickyWallComponent
+    StickyWallComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +28,10 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatSidenavModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
