@@ -1,14 +1,27 @@
 import { Component } from '@angular/core';
-import { ModalService } from '../services/modal.service';
+import { ModalComponent } from './modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CardService } from '../services/card.service';
+import { Card } from '../model/card';
 @Component({
   selector: 'app-sticky-wall',
   templateUrl: './sticky-wall.component.html',
   styleUrls: ['./sticky-wall.component.css']
 })
 export class StickyWallComponent {
-  constructor(private modalService: ModalService) {}
+  cards: Card[] = [];
 
+  
+  constructor(private dialog: MatDialog,
+    private cardService: CardService) {
+      this.cards = this.cardService.getCards();
+    }
+    
   openModal() {
-    this.modalService.openModal();
+    this.dialog.open(ModalComponent, {
+      width: '450px',
+      height: '500px'
+    });
   }
+
 }

@@ -10,4 +10,8 @@
 </div> -->
 
 <div class="sticky-notes">
+  <mat-card *ngFor="let card of cards">
+    <mat-card-title>{{ card.title }}</mat-card-title>
+    <mat-card-content>{{ card.description }}</mat-card-content>
+  </mat-card>
 </div>

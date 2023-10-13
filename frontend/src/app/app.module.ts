@@ -12,7 +12,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from './sticky-wall/modal/modal.component';
-import { ModalService } from './services/modal.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -29,9 +32,12 @@ import { ModalService } from './services/modal.service';
     MatSidenavModule,
     MatButtonModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule
   ],
-  providers: [ModalService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

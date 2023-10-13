@@ -13,7 +13,23 @@ h1{
     border: 1px solid #c2c7c2;
     margin-left: 40px;
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Change from space-between to flex-start */
+    margin: 10px 0;
+    align-content: flex-start; /* Prevent the container from stretching vertically */
+    gap: 10px;
 }
+
+.card-item {
+    
+    width: 250px; /* Fixed width for the cards */
+    height: 200px; /* Fixed height for the cards */
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+    box-sizing: border-box;
+  }
 
 button{
     border: 1px solid #c2c7c2;  
@@ -29,20 +45,3 @@ button{
 
 
 
-
-
-.gray-card {
-    width: 200px;
-    height: 200px;
-    background-color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .icon {
-    font-size: 48px;
-    color: #333;
-  }
-  
