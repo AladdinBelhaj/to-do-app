@@ -34,8 +34,7 @@ export class ModalComponent {
   }
 
 
-
-   getRandomColor(): string {
+  getRandomColor(): string {
     const colors = ['#fdf2b3', '#d1eaed', '#ffdada', '#ffd4a9'];
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
@@ -43,10 +42,9 @@ export class ModalComponent {
 
   onSubmit() {
     // Create a new Card object with title and description
-    const color = this.getRandomColor();
     const currDate = this.formatDate(this.date);
 
-    const newCard = new Card(this.title, this.description, currDate, color);
+    const newCard = new Card(this.title, this.description, currDate,this.getRandomColor());
 
     // Send the new card to the server for saving
     this.cardService.addCard(newCard).subscribe(
