@@ -15,14 +15,26 @@ export class ModalComponent {
     private cardService: CardService
   ) {}
 
-  title:string = "";
-  description:string = "";
-  
+  title: string = "";
+  description: string = "";
 
   onSubmit() {
+    // Create a new Card object with title and description
     const newCard = new Card(this.title, this.description);
-    this.cardService.addCard(newCard);
-    this.dialogRef.close(newCard); // Pass the new card back to the caller
-}
-  }
 
+    // Send the new card to the server for saving
+    this.cardService.addCard(newCard).subscribe(
+      (response) => {
+        // Handle the success response from the server if needed
+        console.log("Note saved successfully", response);
+
+        // Close the modal and pass the new card back to the caller
+        this.dialogRef.close(newCard);
+      },
+      (error) => {
+        // Handle any error that occurs during the HTTP request
+        console.error("Error saving note:", error);
+      }
+    );
+  }
+}

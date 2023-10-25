@@ -15,7 +15,12 @@ connexion.connect((err) => {
 });
 
 
+
+const saveNote = require('./controllers/note.controller');
+saveNote(app);
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+

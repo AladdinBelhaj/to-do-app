@@ -1,45 +1,49 @@
-h1{
+h1 {
     font-family: 'Francois One', sans-serif;
     font-size: 60px;
-    color:#515151;
+    color: #515151;
     display: inline-flex;
     margin-top: 25px;
     margin-left: 25px;
-}
+  }
 
-.sticky-notes{
+  .sticky-notes {
     width: 95%;
-    height: 80%;
+    /* Remove fixed height */
     border: 1px solid #c2c7c2;
     margin-left: 40px;
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Change from space-between to flex-start */
-    align-content: flex-start; /* Prevent the container from stretching vertically */
+    justify-content: flex-start;
+    align-content: flex-start;
     gap: 25px;
-    min-height: 250px; /* Set a minimum height for the container */
-}
+    /* Remove min-height property */
+  }
 
-mat-card {
+  mat-card {
     margin-top: 5px;
     margin-left: 25px;
-    width: 250px; /* Fixed width for the cards */
-    height: 250px; /* Fixed height for the cards */
+    width: 250px;
+    height: 250px;
     box-sizing: border-box;
   }
 
-button{
-    border: 1px solid #c2c7c2;  
+  button {
+    border: 1px solid #c2c7c2;
     margin-right: 15px;
-}
+  }
 
-.top{
+  .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
-
-
-
+  .delete-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; 
+    color: red; 
+    cursor: pointer;
+  }

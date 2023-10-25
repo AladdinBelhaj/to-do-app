@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import {MatIconModule} from '@angular/material/icon';
-import { StickyWallComponent } from './sticky-wall/sticky-wall.component'
+import { StickyWallComponent } from './sticky-wall/sticky-wall.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { ModalComponent } from './sticky-wall/modal/modal.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

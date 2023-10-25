@@ -11,7 +11,12 @@
 
 <div class="sticky-notes">
   <mat-card *ngFor="let card of cards">
-    <mat-card-title>{{ card.title }}</mat-card-title>
-    <mat-card-content>{{ card.description }}</mat-card-content>
+    <mat-card-header>
+      <mat-card-title>{{ card.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{ card.description }}
+    </mat-card-content>
+    <mat-icon class="delete-icon" (click)="deleteCard(card.id)">delete_forever</mat-icon>
   </mat-card>
 </div>
