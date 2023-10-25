@@ -16,14 +16,18 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { TodayComponent } from './today/today.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     StickyWallComponent,
-    ModalComponent
+    ModalComponent,
+    TodayComponent,
+    UpcomingComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

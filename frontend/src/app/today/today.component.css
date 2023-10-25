@@ -1,0 +1,80 @@
+h1 {
+    font-family: 'Francois One', sans-serif;
+    font-size: 60px;
+    color: #515151;
+    display: inline-flex;
+    margin-top: 25px;
+    margin-left: 25px;
+  }
+  
+  .sticky-notes {
+    width: 95%;
+    /* Remove fixed height */
+    border: 1px solid #c2c7c2;
+    margin-left: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 25px;
+    /* Remove min-height property */
+  }
+  
+  mat-card {
+    margin-top: 5px;
+    margin-left: 25px;
+    width: 250px;
+    height: 250px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  
+  mat-card-header{
+    word-wrap:break-word;
+  }
+  
+  button {
+    border: 1px solid #c2c7c2;
+    margin-right: 15px;
+  }
+  
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; 
+    color: red; 
+    cursor: pointer;
+  }
+  
+  .red-bg {
+    background-color: #ffdada;
+  }
+  
+  .yellow-bg {
+    background-color: #fdf2b3;
+  }
+  
+  .blue-bg {
+    background-color: #d1eaed;
+  }
+  
+  .orange-bg {
+    background-color: #ffd4a9;
+  }
+  
+  .card-date {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-weight: bold;
+  }
+  
+  
+  

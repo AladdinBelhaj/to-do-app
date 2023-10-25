@@ -9,11 +9,17 @@
     <mat-label>Description</mat-label>
     <textarea name = "noteDescription" [(ngModel)]="description" matInput></textarea>
 </mat-form-field>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" [min]="minDate">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 </div>
 
 
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close (click)="onSubmit()">Submit</button>
+  <button mat-button mat-dialog-close (click)="onSubmit()" *ngIf="title && description && date">Submit</button>
   <button mat-button mat-dialog-close>Cancel</button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
 </mat-dialog-actions>

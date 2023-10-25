@@ -2,22 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CardService } from '../services/card.service';
 import { Card } from '../model/card';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from '../sticky-wall/modal/modal.component';
 
 @Component({
-  selector: 'app-sticky-wall',
-  templateUrl: './sticky-wall.component.html',
-  styleUrls: ['./sticky-wall.component.css']
+  selector: 'app-upcoming',
+  templateUrl: './upcoming.component.html',
+  styleUrls: ['./upcoming.component.css']
 })
-export class StickyWallComponent implements OnInit {
+export class UpcomingComponent implements OnInit {
   cards: Card[] = [];
-
-  
 
   constructor(private dialog: MatDialog, private cardService: CardService) {}
 
   ngOnInit() {
-    this.loadCards();    
+    this.loadCardsOtherThanTodayDate();
   }
 
   openModal() {
@@ -29,19 +27,19 @@ export class StickyWallComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       // Reload cards when the modal is closed (e.g., when a new card is added)
       if (result) {
-        this.loadCards();
+        this.loadCardsOtherThanTodayDate();
       }
     });
   }
 
+  private loadCardsOtherThanTodayDate() {
+    const today = new Date();
+    const todayFormatted = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
-color : string = "";
-  private loadCards() {
     this.cardService.getAllCards().subscribe(cards => {
-      this.cards = cards;
+      this.cards = cards.filter(card => card.date !== todayFormatted);
     });
   }
-  
 
   deleteCard(cardId: number | undefined) {
     if (cardId === undefined) {
@@ -53,8 +51,4 @@ color : string = "";
       this.cards = this.cards.filter(card => card.id !== cardId);
     });
   }
-
-   
-  }
-  
-
+}
