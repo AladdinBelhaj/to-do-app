@@ -16,18 +16,16 @@ h1{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; /* Change from space-between to flex-start */
-    margin: 10px 0;
     align-content: flex-start; /* Prevent the container from stretching vertically */
-    gap: 10px;
+    gap: 25px;
+    min-height: 250px; /* Set a minimum height for the container */
 }
 
-.card-item {
-    
+mat-card {
+    margin-top: 5px;
+    margin-left: 25px;
     width: 250px; /* Fixed width for the cards */
-    height: 200px; /* Fixed height for the cards */
-    margin-right: 10px;
-    margin-bottom: 10px;
-    
+    height: 250px; /* Fixed height for the cards */
     box-sizing: border-box;
   }
 
