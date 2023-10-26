@@ -1,0 +1,80 @@
+/* Reset default margins and padding */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply background color and fonts to the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Center the login box */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style the login box */
+.login-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Style the login title */
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style form input fields */
+.input-group {
+    margin-bottom: 15px;
+}
+
+/* Style form input fields and icons */
+.input-group .form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.input-group-append .input-group-text {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Style the login button */
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Style the checkbox label */
+.custom-control-label {
+    cursor: pointer;
+}
+
+/* Add custom styling to the link or additional text below the button */
+.font-16 {
+    text-align: center;
+    color: #707373;
+    margin-top: 10px;
+}
+
+.weight-600 {
+    font-weight: 600;
+}
