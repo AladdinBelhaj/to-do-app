@@ -1,24 +1,25 @@
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
-  </style>
+  @import url("https://fonts.googleapis.com/css2?family=Francois+One&display=swap");
+</style>
 
+<div class="top">
+  <h2>Menu</h2>
+  <mat-icon>view_headline</mat-icon>
+</div>
 
-        <div class="top">
-            <h2>Menu</h2>
-            <mat-icon>view_headline</mat-icon>
-        </div>
+<div class="input-container">
+  <input type="text" placeholder="Search" />
+  <mat-icon>search</mat-icon>
+</div>
 
-        <div class="input-container">
-            <input type="text" placeholder="Search">
-            <mat-icon>search</mat-icon>
-          </div>
-
-          <div class="tasks">
-            <h3>TASKS</h3>
-            <ul>
-                <li [routerLink]="['/upcoming']" ><mat-icon>next_week</mat-icon>Upcoming</li>
-                <li [routerLink]="['/today']"><mat-icon> list_alt</mat-icon>Today</li>
-                <li><mat-icon>calendar_today</mat-icon>Calendar</li>
-                <li [routerLink]="['/sticky-wall']"><mat-icon>assignment</mat-icon>Sticky Wall</li>
-            </ul>
-        </div>
+<div class="tasks">
+  <h3>TASKS</h3>
+  <ul>
+    <li [routerLink]="['/upcoming']"><mat-icon>next_week</mat-icon>Upcoming</li>
+    <li [routerLink]="['/today']"><mat-icon> list_alt</mat-icon>Today</li>
+    <li><mat-icon>calendar_today</mat-icon>Calendar</li>
+    <li [routerLink]="['/sticky-wall']">
+      <mat-icon>assignment</mat-icon>Sticky Wall
+    </li>
+  </ul>
+</div>

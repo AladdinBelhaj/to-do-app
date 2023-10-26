@@ -7,7 +7,7 @@
   </div>
   
   <div class="sticky-notes">
-    <mat-card *ngFor="let card of cards">
+    <mat-card *ngFor="let card of cards" [style.background-color]="card.color">
       <mat-card-header>
         <mat-card-title>{{ card.title }}</mat-card-title>
       </mat-card-header>

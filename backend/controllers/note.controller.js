@@ -11,12 +11,13 @@ const saveNote = (app) => {
     const noteData = req.body; // Assuming you're sending the project data in the request body
 
     const insertQuery =
-      "INSERT INTO note (title, description, date) VALUES (?, ?, ?)";
+      "INSERT INTO note (title, description, date,color) VALUES (?, ?, ?,?)";
 
     const values = [
         noteData.title,
         noteData.description,
-        noteData.date
+        noteData.date,
+        noteData.color
     ];
 
     connexion.query(insertQuery, values, (err, results) => {

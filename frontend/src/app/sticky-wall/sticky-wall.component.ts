@@ -11,10 +11,12 @@ import { ModalComponent } from './modal/modal.component';
 })
 export class StickyWallComponent implements OnInit {
   cards: Card[] = [];
+  colorIndex = 0;
 
   
 
-  constructor(private dialog: MatDialog, private cardService: CardService) {}
+  constructor(private dialog: MatDialog, private cardService: CardService) {
+  }
 
   ngOnInit() {
     this.loadCards();    
@@ -35,12 +37,7 @@ export class StickyWallComponent implements OnInit {
   }
 
 
-color : string = "";
-  private loadCards() {
-    this.cardService.getAllCards().subscribe(cards => {
-      this.cards = cards;
-    });
-  }
+
   
 
   deleteCard(cardId: number | undefined) {
@@ -53,6 +50,27 @@ color : string = "";
       this.cards = this.cards.filter(card => card.id !== cardId);
     });
   }
+  getRandomColor(): string {
+    const colors = ['#fdf2b3', '#d1eaed', '#ffdada', '#ffd4a9'];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  }
+
+  private loadCards() {
+    this.cardService.getAllCards().subscribe(cards => { 
+      this.cards = cards
+    });
+    
+  }
+
+
+  private getColorForCard(): string {
+    const colors = ['#fdf2b3', '#d1eaed', '#ffdada', '#ffd4a9']; // Specify your colors here
+    const color = colors[this.colorIndex];
+    this.colorIndex = (this.colorIndex + 1) % colors.length; // Increment and cycle the color index
+    return color;
+  }
+  
 
    
   }

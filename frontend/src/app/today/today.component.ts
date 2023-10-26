@@ -12,6 +12,7 @@ import { ModalComponent } from '../sticky-wall/modal/modal.component';
 export class TodayComponent implements OnInit {
   cards: Card[] = [];
 
+
   constructor(private dialog: MatDialog, private cardService: CardService) {}
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class TodayComponent implements OnInit {
     const todayFormatted = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
     this.cardService.getAllCards().subscribe(cards => {
+      console.log(cards);
       this.cards = cards.filter(card => card.date === todayFormatted);
     });
   }

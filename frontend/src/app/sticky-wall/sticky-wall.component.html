@@ -1,5 +1,5 @@
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Francois+One&display=swap");
 </style>
 <div class="top">
   <h1>Sticky Wall</h1>
@@ -7,7 +7,7 @@
 </div>
 
 <div class="sticky-notes">
-  <mat-card *ngFor="let card of cards">
+  <mat-card *ngFor="let card of cards" [style.background-color]="card.color">
     <mat-card-header>
       <mat-card-title>{{ card.title }}</mat-card-title>
     </mat-card-header>
@@ -15,7 +15,8 @@
       {{ card.description }}
       <div class="card-date">{{ card.date }}</div>
     </mat-card-content>
-    <mat-icon class="delete-icon" (click)="deleteCard(card.id)">delete_forever</mat-icon>
+    <mat-icon class="delete-icon" (click)="deleteCard(card.id)"
+      >delete_forever</mat-icon
+    >
   </mat-card>
 </div>
-
