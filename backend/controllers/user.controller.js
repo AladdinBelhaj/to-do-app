@@ -9,13 +9,13 @@ const saveUser = (app) => {
     const userData = req.body;
 
     const insertQuery =
-      "INSERT INTO user (Nom, Prenom, NumTelephone, Role, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+      "INSERT INTO user (Nom, Prenom, NumTelephone, email, password) VALUES (?, ?, ?, ?, ?)";
 
     const values = [
       userData.Nom,
       userData.Prenom,
       userData.NumTelephone,
-      userData.Role,
+
       userData.email,
       userData.password,
     ];
@@ -75,12 +75,12 @@ const saveUser = (app) => {
   //update user
   app.put("/user/:id", (req, res) => {
     const userId = req.params.id;
-    const { Nom, Prenom, NumTelephone, Role, email, password } = req.body;
+    const { Nom, Prenom, NumTelephone, email, password } = req.body;
 
     let updateQuery =
-      "UPDATE user SET Nom = ?, Prenom = ?, NumTelephone = ?, Role = ? , email = ?, password = ?";
+      "UPDATE user SET Nom = ?, Prenom = ?, NumTelephone = ?, email = ?, password = ?";
 
-    const updateValues = [Nom, Prenom, NumTelephone, Role, email, password];
+    const updateValues = [Nom, Prenom, NumTelephone, email, password];
     updateQuery += " WHERE id = ?";
 
     updateValues.push(userId);
