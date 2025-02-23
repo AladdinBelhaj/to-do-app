@@ -4,16 +4,15 @@ pipeline {
         stage('Build') {
             steps {
                 dir('frontend') {
-                    // Install Node.js dependencies
                     sh 'npm install'
-                    // Build project
                     sh 'npm run build'
                 }
-
+                
                 dir('backend') {
-                    // Install dependencies for the backend
+                    // Install sequelize-cli and ensure proper permissions
                     sh 'npm install'
-                    // Run Sequelize migrations
+                    sh 'chmod -R 755 node_modules/.bin'
+                    // Run migrations
                     sh 'npx sequelize-cli db:migrate'
                 }
             }
