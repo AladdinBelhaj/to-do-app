@@ -1,22 +1,36 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
                 dir('frontend') {
                     sh 'npm install'
+                }
+                dir('backend') {
+                    sh 'npm install'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('frontend') {
+                    sh 'npx eslint . --fix'
+                }
+                dir('backend') {
+                    sh 'npx eslint . --fix'
+                    sh 'npx sequelize-cli db:migrate'
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('frontend') {
                     sh 'npm run build'
                 }
-                
                 dir('backend') {
-                    // Install sequelize-cli and ensure proper permissions
-                    sh 'npm install'
-                    sh 'chmod -R 755 node_modules/.bin'
-                    sh 'npx sequelize-cli db:create'
-                    sh 'npx sequelize-cli db:migrate'
+                    sh 'npm run build'
                 }
             }
         }
     }
 }
-
