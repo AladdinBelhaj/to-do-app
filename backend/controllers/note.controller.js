@@ -1,68 +1,52 @@
-const express = require("express");
-const cors = require("cors");
-const multer = require("multer");
-const upload = multer();
-const connexion = require('./db').connexion;
+// backend/controllers/note.controller.js
+const Note = require('../models/note');
 
 const saveNote = (app) => {
-  app.use(cors());
+  app.post("/note", async (req, res) => {
+    const noteData = req.body;
 
-  app.post("/note", (req, res) => {
-    const noteData = req.body; // Assuming you're sending the project data in the request body
-
-    const insertQuery =
-      "INSERT INTO note (title, description, date,color) VALUES (?, ?, ?,?)";
-
-    const values = [
-        noteData.title,
-        noteData.description,
-        noteData.date,
-        noteData.color
-    ];
-
-    connexion.query(insertQuery, values, (err, results) => {
-      if (err) {
-        console.error("Error saving project:", err);
-        res.status(500).json({ message: "Error saving project" });
-        return;
-      }
+    try {
+      // Save note using Sequelize
+      await Note.create({
+        title: noteData.title,
+        description: noteData.description,
+        date: noteData.date,
+        color: noteData.color
+      });
 
       res.status(200).json({ message: "Note saved successfully" });
-    });
+    } catch (err) {
+      console.error("Error saving note:", err);
+      res.status(500).json({ message: "Error saving note" });
+    }
   });
 
-  app.get("/note", (req, res) => {
-    // Handle retrieving notes
-    const selectQuery = "SELECT * FROM note";
-
-    connexion.query(selectQuery, (err, notes) => {
-      if (err) {
-        console.error("Error retrieving notes:", err);
-        res.status(500).json({ message: "Error retrieving notes" });
-        return;
-      }
-
+  app.get("/note", async (req, res) => {
+    try {
+      const notes = await Note.findAll();
       res.status(200).json(notes);
-    });
+    } catch (err) {
+      console.error("Error retrieving notes:", err);
+      res.status(500).json({ message: "Error retrieving notes" });
+    }
   });
 
-  app.delete("/note/:id", (req, res) => {
+  app.delete("/note/:id", async (req, res) => {
     const noteId = req.params.id;
 
-    const deleteQuery = "DELETE FROM note WHERE id = ?";
+    try {
+      await Note.destroy({
+        where: {
+          id: noteId
+        }
+      });
 
-    connexion.query(deleteQuery, [noteId], (err, results) => {
-      if (err) {
-        console.error("Error deleting projet:", err);
-        res.status(500).json({ message: "Error deleting note" });
-        return;
-      }
-
-      console.log("note deleted successfully!");
-      res.status(200).json({ message: "note deleted successfully" });
-    });
+      res.status(200).json({ message: "Note deleted successfully" });
+    } catch (err) {
+      console.error("Error deleting note:", err);
+      res.status(500).json({ message: "Error deleting note" });
+    }
   });
 };
-  
 
 module.exports = saveNote;

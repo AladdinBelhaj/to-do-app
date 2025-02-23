@@ -1,26 +1,30 @@
+// backend/server.js
+
 const express = require("express");
-const app = express();
 const cors = require("cors");
-const connexion = require('./controllers/db').connexion;
-app.use(cors()); // allow request from different domains
-app.use(express.json()); // create an express application
+const sequelize = require("./models"); // Import sequelize instance for DB connection
+const saveNote = require("./controllers/note.controller");
 
-connexion.connect((err) => {
-  // establish connection with database
-  if (err) {
-    console.error("error", err);
-    return;
-  }
-  console.log("Connected to database");
-});
+const app = express();
 
+// Middlewares
+app.use(cors());
+app.use(express.json());
 
+// Test the database connection before starting the server
+sequelize.authenticate()
+  .then(() => {
+    console.log("Database connected successfully!");
 
-const saveNote = require('./controllers/note.controller');
-saveNote(app);
+    // If the DB connection is successful, set up routes
+    saveNote(app); // Add routes for notes (created in controllers/note.controller.js)
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
-
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+      console.log(`Server started on port ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+    process.exit(1); // Exit the process if DB connection fails
+  });
