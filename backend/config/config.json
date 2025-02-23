@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "to-do-app", 
     "host": "host.docker.internal", 
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "to-do-app-test",
     "host": "host.docker.internal", 
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "to-do-app-prod",
     "host": "host.docker.internal", 
     "dialect": "mysql"
