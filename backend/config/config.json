@@ -3,21 +3,21 @@
     "username": "root",
     "password": "root123",
     "database": "to-do-app", 
-    "host": "mysql-container", 
+    "host": "host.docker.internal", 
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root123",
     "database": "to-do-app-test",
-    "host": "mysql-container", 
+    "host": "host.docker.internal", 
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "root123",
     "database": "to-do-app-prod",
-    "host": "mysql-container",
+    "host": "host.docker.internal",
     "dialect": "mysql"
   }
 }
