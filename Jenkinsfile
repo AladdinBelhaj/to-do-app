@@ -12,7 +12,7 @@ pipeline {
                     // Install sequelize-cli and ensure proper permissions
                     sh 'npm install'
                     sh 'chmod -R 755 node_modules/.bin'
-                    // Run migrations
+                    sh 'npx sequelize-cli db:create'
                     sh 'npx sequelize-cli db:migrate'
                 }
             }
