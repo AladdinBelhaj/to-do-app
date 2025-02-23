@@ -14,7 +14,6 @@ pipeline {
                     sh 'chmod -R 755 node_modules/.bin'
                     sh 'npx sequelize-cli db:create'
                     sh 'npx sequelize-cli db:migrate'
-                    sh 'npx eslint . --fix'
                 }
             }
         }
