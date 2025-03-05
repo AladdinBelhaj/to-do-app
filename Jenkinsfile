@@ -19,11 +19,11 @@ pipeline {
             steps {
                 script {
                     // Stop and remove any existing container
-                    sh "docker stop my-frontend || true"
-                    sh "docker rm my-frontend || true"
+                    sh "docker stop frontend || true"
+                    sh "docker rm frontend || true"
 
                     // Run the new container
-                    sh "docker run -d -p 80:80 --name my-frontend ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    sh "docker run -d -p 80:80 --name frontend ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 }
             }
         }
