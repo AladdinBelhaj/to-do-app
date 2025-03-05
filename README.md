@@ -24,3 +24,10 @@ I set up a **Jenkins CI/CD pipeline** to automate the build and deployment of a 
 - **Docker**: How to run Docker commands inside a `Jenkinsfile`
 - **Vagrant**: How to make use of Vagrant provisioning
 - **Debugging**: How to troubleshoot and fix issues in CI/CD pipelines.
+
+- ---
+
+## Conclusion
+This project helped me understand the basics of CI/CD. This experience will be valuable for future projects!
+
+---
